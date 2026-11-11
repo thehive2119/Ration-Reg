@@ -1,9 +1,9 @@
 {
-  "version": "2.3.7",
-  "android": "https://raw.githubusercontent.com/thehive2119/Ration-Reg/main/releases/RationReg-2.3.7.apk",
-  "windows": "https://raw.githubusercontent.com/thehive2119/Ration-Reg/main/releases/RationReg-Setup-2.3.7.exe",
+  "version": "2.3.8",
+  "android": "https://raw.githubusercontent.com/thehive2119/Ration-Reg/main/releases/RationReg-2.3.8.apk",
+  "windows": "https://raw.githubusercontent.com/thehive2119/Ration-Reg/main/releases/RationReg-Setup-2.3.8.exe",
   "sha256": {
-    "android": "a62a85cdb00a2f49740f15610472ae90e05feedbbca3b6ef14fa1d513dbea7a4",
-    "windows": "fad288d4ebc52f02bc3bfb45a6aecb08017dce0e7504dc956b4c41b0723f7b07"
+    "android": "56eb1cbc40c3cbbf755093ef76fbbe12de9c5c740d1929bcb7d5d26d2b2c2c4d",
+    "windows": "9093f838d111f45f99559444dc0ccd3260c1616851d1eaa7b5406a3e8289d6f5"
   }
 }

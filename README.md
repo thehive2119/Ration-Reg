@@ -1,19 +1,33 @@
 # Ration Reg app updates
 
-This public repository holds the Android and Windows installers. Installed apps read [releases/latest.json](releases/latest.json) when they open. They also have **Settings → About Ration Reg → Check for updates**.
+Latest version: **2.3.8 — native in-app updater**.
 
-## Install the updater once
+## Install this version once
 
-Download [RationReg-2.3.6.apk](releases/RationReg-2.3.6.apk) on each Android phone and [RationReg-Setup-2.3.6.exe](releases/RationReg-Setup-2.3.6.exe) on each Windows PC. Install over the existing app so its shop connection and local pending entries remain in place. Android requires approval to install the downloaded APK; Windows asks the user to run its installer. The website is updated separately through its existing Apps Script deployment.
+- [Android APK](https://raw.githubusercontent.com/thehive2119/Ration-Reg/main/releases/RationReg-2.3.8.apk)
+- [Windows installer](https://raw.githubusercontent.com/thehive2119/Ration-Reg/main/releases/RationReg-Setup-2.3.8.exe)
+
+Save pending entries first, then install over the existing app. Keep its app data and existing shop connection. Android versions 2.3.6/2.3.7 need this APK installed manually once because their WebView blocks the previous update check. Do not uninstall the app to update it.
+
+## Updates from version 2.3.8 onward
+
+Open **Settings → About Ration Reg → Check for updates**. When an update is available:
+
+1. Choose **Download update**. Ration Reg downloads it internally and shows progress.
+2. The app verifies the SHA-256 hash. Android additionally verifies its own package name, newer version and signing certificate.
+3. Choose **Install update**. Android opens its system package installer. If asked, allow installation from Ration Reg and return to continue. Windows opens its local installer and closes Ration Reg after saving its local settings.
+4. Approve the operating system installation. Windows' installer offers to reopen the app when finished.
+
+The updater does not open a browser. System installation/permission screens remain required. Stock data stays in each shop's existing workbooks. Apps do not notify while closed.
 
 ## Publish the next version
 
-1. Build the new APK and Windows installer from the local Ration Reg project. Increment the shared UI and native app version numbers, and keep the existing Android signing certificate.
-2. In this repository, open `releases/` and upload the two new files with their versioned names, for example `RationReg-2.3.7.apk` and `RationReg-Setup-2.3.7.exe`. Keep old files so users who started an update can finish it.
-3. Download each uploaded file once and compare its SHA-256 hash with the local build.
-4. Edit `releases/latest.json` **last**. Set `version` to the new version and point `android` and `windows` at the exact raw GitHub URLs for the uploaded files. Update the optional SHA-256 entries. Commit the manifest change. GitHub's raw file cache may take about five minutes to refresh.
-5. Open an installed app, use **Check for updates**, and verify the notification and correct download. When a new version is available the app prompts on launch; choosing **Later** dismisses that version's automatic prompt on that device.
+1. Build a higher version with the original Android signing key.
+2. Upload both versioned files into `releases/`, for example `RationReg-2.3.9.apk` and `RationReg-Setup-2.3.9.exe`. Keep older versions.
+3. Download the uploaded files and verify their SHA-256 hashes against the local builds.
+4. Update `releases/latest.json` **last**, setting `version`, `android`, `windows`, and both **required** `sha256` values. The URLs must use this repository's exact raw GitHub paths and versioned filenames.
+5. Check from a device before rolling out to everyone. GitHub raw-file caching may take about five minutes to refresh.
 
-An installed app opens the download in the system browser. The user then approves installation. The app does not install files without OS approval, and it does not notify while closed.
+The website still uses its existing Apps Script deployment process. This public repository contains installers, the update manifest and instructions. It contains no stock data, connection codes, spreadsheet IDs, signing keys or Apps Script server source.
 
-The repository contains no spreadsheets, stock data, connection keys, Apps Script server code, or Android signing secrets.
+Native HTTPS download and hash verification were tested on Windows and in a Java transport test. Physical Android installation, Android unknown-source permission screens and actual Windows installer upgrade were not exercised on a device.
