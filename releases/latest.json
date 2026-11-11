@@ -1,0 +1,9 @@
+{
+  "version": "2.3.5",
+  "android": "https://raw.githubusercontent.com/thehive2119/Ration-Reg/main/releases/RationReg-2.3.5.apk",
+  "windows": "https://raw.githubusercontent.com/thehive2119/Ration-Reg/main/releases/RationReg-Setup-2.3.5.exe",
+  "sha256": {
+    "android": "7cc230b9da57e4ff3c73a09316f5fbb6590cf8b207eb06e75ae488db5d3f970e",
+    "windows": "8a64fa1b9dc97f11a49be609630c886dc4537a9822ba83b05e6edd8003161ed1"
+  }
+}
